@@ -1,0 +1,5 @@
+package Empty
+
+class Empty {
+
+}

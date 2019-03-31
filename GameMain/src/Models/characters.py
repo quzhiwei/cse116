@@ -35,6 +35,8 @@ class Player(Character):
 		self.image.fill((255, 255, 0))
 		self.rect = self.image.get_rect()
 		#
+		# self.hit_rect = pygame.Rect(0, 0, 35, 35)
+		# self.hit_rect.center = self.rect.center
 		self.x = x
 		self.y = y
 		self.health = 100
@@ -43,9 +45,22 @@ class Player(Character):
 		self.x += dx
 		self.y += dy
 
+	def key_pressed(self):
+		keys = pygame.key.get_pressed()
+		if keys[pygame.K_LEFT] or keys[pygame.K_a]:
+			self.move(dx=-1)
+		if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+			self.move(dx=1)
+		if keys[pygame.K_UP] or keys[pygame.K_w]:
+			self.move(dy=-1)
+		if keys[pygame.K_DOWN] or keys[pygame.K_s]:
+			self.move(dy=1)
+
 	def update(self):
+		self.key_pressed()
 		self.rect.x = self.x * tile_size
 		self.rect.y = self.y * tile_size
+
 
 
 class Enemy(Character):

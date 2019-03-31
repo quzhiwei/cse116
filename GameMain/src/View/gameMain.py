@@ -15,7 +15,7 @@ class Game:
 		self.map_img = self.map.make_map()
 		self.map_rect = self.map_img.get_rect()
 
-		# self.isRunning = True
+		self.isRunning = True
 
 	def session_setup(self):
 		self.all_sprites = pygame.sprite.Group()
@@ -31,15 +31,16 @@ class Game:
 			pygame.draw.line(self.screen, (100, 100, 100), (0, y), (screen_width, y))
 
 	def update_session(self):
-		self.session_event()
-		self.all_sprites.update()
-		self.camera.update(self.player)
+		while self.isRunning:
+			self.session_event()
+			self.all_sprites.update()
+			self.camera.update(self.player)
 
-		self.screen.blit(self.map_img, self.camera.apply_rect(self.map_rect))
-		# self.draw_grid()
-		for sprite in self.all_sprites:
-			self.screen.blit(sprite.image, self.camera.apply(sprite))
-		pygame.display.flip()
+			self.screen.blit(self.map_img, self.camera.apply_rect(self.map_rect))
+			# self.draw_grid()
+			for sprite in self.all_sprites:
+				self.screen.blit(sprite.image, self.camera.apply(sprite))
+			pygame.display.flip()
 
 	def session_event(self):
 		for event in pygame.event.get():
@@ -50,7 +51,6 @@ class Game:
 				if event.key == pygame.K_ESCAPE:
 					pygame.quit()
 
-				'''
 				#Keyboard input defined in character.Player.key_pressed()
 				#This is only for testing
 				if event.key == pygame.K_LEFT:
@@ -61,7 +61,6 @@ class Game:
 					self.player.move(dy=-1)
 				if event.key == pygame.K_DOWN:
 					self.player.move(dy=1)
-				'''
 
 
 session = Game()

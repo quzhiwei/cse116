@@ -57,7 +57,7 @@ class Player(Character):
 			self.move(dy=1)
 
 	def update(self):
-		self.key_pressed()
+		# self.key_pressed()
 		self.rect.x = self.x * tile_size
 		self.rect.y = self.y * tile_size
 

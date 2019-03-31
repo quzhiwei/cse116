@@ -36,7 +36,7 @@ class Game:
 		self.camera.update(self.player)
 
 		self.screen.blit(self.map_img, self.camera.apply_rect(self.map_rect))
-		self.draw_grid()
+		# self.draw_grid()
 		for sprite in self.all_sprites:
 			self.screen.blit(sprite.image, self.camera.apply(sprite))
 		pygame.display.flip()

@@ -14,15 +14,30 @@ class Game:
 		self.map = TiledMap('../../Resources/town.tmx')
 		self.map_img = self.map.make_map()
 		self.map_rect = self.map_img.get_rect()
+		self.player_image = pygame.image.load("../../Resources/player.png").convert_alpha()
 
 		self.isRunning = True
+
+	def changemap(self,Player):
+		if Player.x ==1120.00 and Player.y ==416.00:
+			self.map = TiledMap('../../Resources/house1.tmx')
+
 
 	def session_setup(self):
 		self.all_sprites = pygame.sprite.Group()
 		self.walls = pygame.sprite.Group()
 		self.enemy = pygame.sprite.Group()
-		self.player = Player(self, 16, 12)
+		for tile_object in self.map.tmxdata.objects:
+			if tile_object.name == 'player':
+				self.player = Player(self, tile_object.x, tile_object.y)
+
+			if tile_object.name == 'wall':
+				Obstacle(self, tile_object.x, tile_object.y,
+						 tile_object.width, tile_object.height)
+				wall = Obstacle
 		self.camera = Camera(self.map.width, self.map.height)
+		self.draw_debug = False
+
 
 	def draw_grid(self):
 		for x in range(0, screen_width, tile_size):
@@ -54,13 +69,13 @@ class Game:
 				#Keyboard input defined in character.Player.key_pressed()
 				#This is only for testing
 				if event.key == pygame.K_LEFT:
-					self.player.move(dx=-1)
+					self.player.move(dx=-32)
 				if event.key == pygame.K_RIGHT:
-					self.player.move(dx=1)
+					self.player.move(dx=32)
 				if event.key == pygame.K_UP:
-					self.player.move(dy=-1)
+					self.player.move(dy=-32)
 				if event.key == pygame.K_DOWN:
-					self.player.move(dy=1)
+					self.player.move(dy=32)
 
 
 session = Game()

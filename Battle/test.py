@@ -10,12 +10,12 @@ enemStat = {
     "Atk": 1,
     "Def": 0,
     "Heal": 0,
-    "XPDrop": 5
+    "XPDrop": 100
 }
 
 enemStat2 = {
     "Level": 1,
-    "MaxHP" : 10,
+    "MaxHP": 10,
     "HP": 5,
     "Atk": 10,
     "Def": 0,
@@ -30,7 +30,8 @@ stats = {
     "Atk": 10,
     "Def": 1,
     "Heal": 0,
-    "XP": 0
+    "XP": 0,
+    "GP": 0
 }
 
 stats2 = {
@@ -40,7 +41,10 @@ stats2 = {
     "Atk": 1,
     "Def": 1,
     "Heal": 0,
-    "XP": 0
+    "XP": 0,
+    "Gold": 0,
+    "WPN": 0,
+    "AMR": 0
 }
 
 
@@ -58,3 +62,5 @@ battle2 = BattleSystem(james, basicEnemy2)
 print(battle1.battle())
 print(battle2.battle())
 
+
+#To do: Gold to level up weapon to increase stats, armor for defense

@@ -4,17 +4,7 @@ from Models.static import *
 def collide_hit_rect(one, two):
     return one.hit_rect.colliderect(two.rect)
 
-class Map:
-    def __init__(self, filename):
-        self.data = []
-        with open(filename, 'rt') as f:
-            for line in f:
-                self.data.append(line.strip())
 
-        self.tile_width = len(self.data[0])
-        self.tile_height = len(self.data)
-        self.width = self.tile_width * tile_size
-        self.height = self.tile_height * tile_size
 
 class TiledMap:
     def __init__(self, filename):

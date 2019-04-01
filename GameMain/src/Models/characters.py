@@ -1,5 +1,7 @@
 import pygame
 from Models.static import *
+from View.tilemap import *
+
 
 
 class Character(pygame.sprite.Sprite):
@@ -31,8 +33,7 @@ class Player(Character):
 		self.score = 0
 		# for testing only
 		# self.image = player_image
-		self.image = pygame.Surface((tile_size, tile_size))
-		self.image.fill((255, 255, 0))
+		self.image = session.player_image
 		self.rect = self.image.get_rect()
 		#
 		# self.hit_rect = pygame.Rect(0, 0, 35, 35)
@@ -41,9 +42,17 @@ class Player(Character):
 		self.y = y
 		self.health = 100
 
+	def collide_with_walls(self, dx=0, dy=0):
+		for wall in self.session.walls:
+			if wall.x == self.x + dx and wall.y == self.y + dy:
+				return True
+		return False
+
 	def move(self, dx=0, dy=0):
-		self.x += dx
-		self.y += dy
+		if not self.collide_with_walls(dx, dy):
+			self.x += dx
+			self.y += dy
+
 
 	def key_pressed(self):
 		keys = pygame.key.get_pressed()
@@ -58,8 +67,8 @@ class Player(Character):
 
 	def update(self):
 		# self.key_pressed()
-		self.rect.x = self.x * tile_size
-		self.rect.y = self.y * tile_size
+		self.rect.x = self.x
+		self.rect.y = self.y
 
 
 
@@ -78,17 +87,14 @@ class Enemy(Character):
 		return
 
 
-class Wall(pygame.sprite.Sprite):
-
-	def __init__(self, game, x, y):
-		self.groups = game.all_sprites, game.walls
-		pygame.sprite.Sprite.__init__(self, self.groups)
-		self.game = game
-		# self.image = game.wall_img
-		self.image = pygame.Surface((tile_size, tile_size))
-		self.image.fill((0, 255, 0))
-		self.rect = self.image.get_rect()
-		self.x = x
-		self.y = y
-		self.rect.x = x * tile_size
-		self.rect.y = y * tile_size
+class Obstacle(pygame.sprite.Sprite):
+    def __init__(self, session, x, y, w, h):
+        self.groups = session.walls
+        pygame.sprite.Sprite.__init__(self, self.groups)
+        self.game = session
+        self.rect = pygame.Rect(x, y, w, h)
+        self.hit_rect = self.rect
+        self.x = x
+        self.y = y
+        self.rect.x = x
+        self.rect.y = y

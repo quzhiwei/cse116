@@ -148,7 +148,7 @@
   <object id="126" name="wall" x="1280" y="768" width="128" height="32"/>
   <object id="130" name="wall" x="1536" y="1088" width="64" height="32"/>
   <object id="131" name="wall" x="1504" y="1120" width="96" height="96"/>
-  <object id="134" name="player" x="320" y="320" width="32" height="32"/>
+  <object id="134" name="player" x="512" y="352" width="32" height="32"/>
   <object id="135" name="wall" x="352" y="288" width="64" height="64"/>
   <object id="136" name="wall" x="448" y="288" width="64" height="64"/>
   <object id="137" name="wall" x="288" y="192" width="32" height="32"/>

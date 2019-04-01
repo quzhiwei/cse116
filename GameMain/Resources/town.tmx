@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="917">
  <tileset firstgid="1" name="rpg_maker_vx_rtp_tileset_by_telles0808_d2mslkf" tilewidth="32" tileheight="32" tilecount="2016" columns="32">
-  <image source="../../../../PycharmProjects/pyg/tiltsheet/rpg_maker_vx_rtp_tileset_by_telles0808_d2mslkf.png" width="1024" height="2016"/>
+  <image source="rpg_maker_vx_rtp_tileset_by_telles0808_d2mslkf.png" width="1024" height="2016"/>
  </tileset>
  <tileset firstgid="2017" name="612be35a57aed48fa0b9b3905997d35f" tilewidth="32" tileheight="32" tilecount="576" columns="24">
-  <image source="../../../../PycharmProjects/pyg/tiltsheet/612be35a57aed48fa0b9b3905997d35f.png" width="768" height="768"/>
+  <image source="612be35a57aed48fa0b9b3905997d35f.png" width="768" height="768"/>
  </tileset>
  <tileset firstgid="2593" name="backup" tilewidth="32" tileheight="32" tilecount="256" columns="16">
-  <image source="../../../../PycharmProjects/pyg/tiltsheet/backup.png" width="512" height="512"/>
+  <image source="backup.png" width="512" height="512"/>
  </tileset>
  <tileset firstgid="2849" name="vx_chara03_f" tilewidth="32" tileheight="48" tilecount="1344" columns="32">
-  <image source="../../../../PycharmProjects/pyg/tiltsheet/rpg_maker_vx_rtp_tileset_by_telles0808_d2mslkf.png" width="1024" height="2016"/>
+  <image source="rpg_maker_vx_rtp_tileset_by_telles0808_d2mslkf.png" width="1024" height="2016"/>
  </tileset>
  <tileset firstgid="4193" name="remakertp01" tilewidth="32" tileheight="48" tilecount="96" columns="12">
-  <image source="../../../../PycharmProjects/pyg/tiltsheet/remakertp01.png" width="384" height="384"/>
+  <image source="remakertp01.png" width="384" height="384"/>
  </tileset>
  <tileset firstgid="4289" name="tileset-pokemon_dawn" tilewidth="32" tileheight="32" tilecount="3666" columns="47">
-  <image source="../../../../PycharmProjects/pyg/tiltsheet/tileset-pokemon_dawn.png" width="1504" height="2519"/>
+  <image source="tileset-pokemon_dawn.png" width="1504" height="2519"/>
  </tileset>
  <layer id="10" name="ground" width="64" height="48">
   <data encoding="csv">
